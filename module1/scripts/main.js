@@ -1,0 +1,1 @@
+alert("I'm sorry David, I'm afraid I cannot let you do that.");
