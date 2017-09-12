@@ -1,123 +1,40 @@
-﻿var schedule = [
-    {
-        "id": "session-1",
-        "title": "Registration",
-        "tracks": [1, 2]
-    },
-    {
-        "id": "session-2",
-        "title": "Moving the Web forward with HTML5",
-        "tracks": [1, 2]
-    },
-    {
-        "id": "session-3",
-        "title": "Diving in at the deep end with Canvas",
-        "tracks": [1]
-    },
-    {
-        "id": "session-4",
-        "title": "New Technologies in Enterprise",
-        "tracks": [2]
-    },
-    {
-        "id": "session-5",
-        "title": "WebSockets and You",
-        "tracks": [1]
-    },
-    {
-        "id": "session-6",
-        "title": "Coffee and Cake Break",
-        "tracks": [1, 2]
-    },
-    {
-        "id": "session-7",
-        "title": "Building Responsive UIs",
-        "tracks": [1]
-    },
-    {
-        "id": "session-8",
-        "title": "Fun with Forms (no, really!)",
-        "tracks": [2]
-    },
-    {
-        "id": "session-9",
-        "title": "A Fresh Look at Layouts",
-        "tracks": [1]
-    },
-    {
-        "id": "session-10",
-        "title": "Real-world Applications of HTML5 APIs",
-        "tracks": [2]
-    },
-    {
-        "id": "session-11",
-        "title": "Lunch",
-        "tracks": [1, 2]
-    },
-    {
-        "id": "session-12",
-        "title": "Getting to Grips with JavaScript",
-        "tracks": [1]
-    },
-    {
-        "id": "session-13",
-        "title": "Transforms and Animations",
-        "tracks": [2]
-    },
-    {
-        "id": "session-14",
-        "title": "Web Design Adventures with CSS3",
-        "tracks": [1]
-    },
-    {
-        "id": "session-15",
-        "title": "Introducing Data Access and Caching",
-        "tracks": [2]
-    },
-    {
-        "id": "session-16",
-        "title": "Closing Thanks and Prizes",
-        "tracks": [1, 2]
-    }
-];
+﻿// Get the registration <form> element from the DOM.
+var form = document.getElementById("registration-form");
+var submitButton = form.querySelector("button");
+    
+// TODO: Get the password <input> elements from the DOM by ID
+// var passwordInput = ...;
+// var confirmPasswordInput = ...;
 
+var checkPasswords = function () {
+    // TODO: Compare passwordInput value to confirmPasswordInput value
 
-// TODO: Task 2 - Get the "schedule" list element from the document
-var list = document.getElementById("schedule");
+    // TODO: If passwords don't match then display error message on confirmPasswordInput (using setCustomValidity)
 
-function createSessionElement(session) {
-    // TODO: Task 3 - Create a <li> element for the session.
-    //       Add the session title as the <li> text content
-    //       Return the <li> element
-    var li = document.createElement("li");
-    li.textContent = session.title;
-    return li;
+    // TODO: If passwords do match then clear the error message (setCustomValidity with empty string)
 };
 
-function clearList() {
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-}
+var addPasswordInputEventListeners = function () {
+    // TODO: Listen for the "input" event on passwordInput and confirmPasswordInput.
+    //       Call the checkPasswords function
+};
 
-function displaySchedule() {
-    clearList();    
-    // TODO: Task 4 - Loop through the schedule array
-    //       Create session elements
-    //       Append the elements to the list 
-    for (var i = 0; i < schedule.length; i++) {
-        var li = createSessionElement(schedule[i]);
-        list.appendChild(li);
-    }
-}
+var formSubmissionAttempted = function() {
+    form.classList.add("submission-attempted");
+};
 
-displaySchedule();
+var addSubmitClickEventListener = function() {
+    submitButton.addEventListener("click", formSubmissionAttempted, false);
+};
+
+addPasswordInputEventListeners();
+addSubmitClickEventListener();
 // SIG // Begin signature block
 // SIG // MIIaVgYJKoZIhvcNAQcCoIIaRzCCGkMCAQExCzAJBgUr
 // SIG // DgMCGgUAMGcGCisGAQQBgjcCAQSgWTBXMDIGCisGAQQB
 // SIG // gjcCAR4wJAIBAQQQEODJBs441BGiowAQS9NQkAIBAAIB
-// SIG // AAIBAAIBAAIBADAhMAkGBSsOAwIaBQAEFBwI1Tpqf6h3
-// SIG // 33yZ3Lo4Tcr+DaYxoIIVJjCCBJkwggOBoAMCAQICEzMA
+// SIG // AAIBAAIBAAIBADAhMAkGBSsOAwIaBQAEFJeIguJFQ1f4
+// SIG // Ur6gGSPhack/IHa9oIIVJjCCBJkwggOBoAMCAQICEzMA
 // SIG // AACdHo0nrrjz2DgAAQAAAJ0wDQYJKoZIhvcNAQEFBQAw
 // SIG // eTELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0
 // SIG // b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1p
@@ -153,28 +70,28 @@ displaySchedule();
 // SIG // Ha7Ki8f3iB7q/pEMn08HCe0mkm6zlBkB+F+B567aiY9/
 // SIG // Wl6EX7W+fEblR6/+WCuRf4fcRh9RlczDYqG1x1/ryWlc
 // SIG // cZGpjVYgLDpOk/2bBo+tivhofju6eUKTOUn10F7scI1C
-// SIG // dcWCVZAbtVVhMIIEujCCA6KgAwIBAgIKYQKOQgAAAAAA
-// SIG // HzANBgkqhkiG9w0BAQUFADB3MQswCQYDVQQGEwJVUzET
+// SIG // dcWCVZAbtVVhMIIEujCCA6KgAwIBAgIKYQKSSgAAAAAA
+// SIG // IDANBgkqhkiG9w0BAQUFADB3MQswCQYDVQQGEwJVUzET
 // SIG // MBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVk
 // SIG // bW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0
 // SIG // aW9uMSEwHwYDVQQDExhNaWNyb3NvZnQgVGltZS1TdGFt
-// SIG // cCBQQ0EwHhcNMTIwMTA5MjIyNTU4WhcNMTMwNDA5MjIy
-// SIG // NTU4WjCBszELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldh
+// SIG // cCBQQ0EwHhcNMTIwMTA5MjIyNTU5WhcNMTMwNDA5MjIy
+// SIG // NTU5WjCBszELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldh
 // SIG // c2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNV
 // SIG // BAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjENMAsGA1UE
 // SIG // CxMETU9QUjEnMCUGA1UECxMebkNpcGhlciBEU0UgRVNO
-// SIG // OkY1MjgtMzc3Ny04QTc2MSUwIwYDVQQDExxNaWNyb3Nv
+// SIG // OkI4RUMtMzBBNC03MTQ0MSUwIwYDVQQDExxNaWNyb3Nv
 // SIG // ZnQgVGltZS1TdGFtcCBTZXJ2aWNlMIIBIjANBgkqhkiG
-// SIG // 9w0BAQEFAAOCAQ8AMIIBCgKCAQEAluyOR01UwlyVgNdO
-// SIG // Cz2/l0PDS+NgZxEvAU0M2NFGLxBA3gukUFISiAtDei0/
-// SIG // 7khuZseR5gPKbux5qWojm81ins1qpD/no0P/YkehtLpE
-// SIG // +t9AwYVUfuigpyxDI5tSHzI19P6aVp+NY3d7MJ4KM4Vy
-// SIG // G8pKyMwlzdtdES7HsIzxj0NIRwW1eiAL5fPvwbr0s9jN
-// SIG // OI/7Iao9Cm2FF9DK54YDwDODtSXEzFqcxMPaYiVNUyUU
-// SIG // YY/7G+Ds90fGgEXmNVMjNnfKsN2YKznAdTUP3YFMIT12
-// SIG // MMWysGVzKUgn2MLSsIRHu3i61XQD3tdLGfdT3njahvdh
-// SIG // iCYztEfGoFSIFSssdQIDAQABo4IBCTCCAQUwHQYDVR0O
-// SIG // BBYEFC/oRsho025PsiDQ3olO8UfuSMHyMB8GA1UdIwQY
+// SIG // 9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzWPD96K1R9n5OZRT
+// SIG // rGuPpnk4IfTRbj0VOBbBcyyZj/vgPFvhokyLsquLtPJK
+// SIG // x7mTUNEm9YdTsHp180cPFytnLGTrYOdKjOCLXsRWaTc6
+// SIG // KgRdFwHIv6m308mro5GogeM/LbfY5MR4AHk5z/3HZOIj
+// SIG // EnieDHYnSY+arA504wZVVUnI7aF8cEVhfrJxFh7hwUG5
+// SIG // 0tIy6VIk8zZQBNfdbzxJ1QvUdkD8ZWUTfpVROtX/uJqn
+// SIG // V2tLFeU3WB/cAA3FrurfgUf58FKu5s9arOAUSqZxlID6
+// SIG // /bAjMGDpg2CsDiQe/xHy56VVYpXun3+eKdbNSwp2g/BD
+// SIG // BN8GSSDyU1pEsFF6OQIDAQABo4IBCTCCAQUwHQYDVR0O
+// SIG // BBYEFM0ZrGFNlGcr9q+UdVnb8FgAg6E6MB8GA1UdIwQY
 // SIG // MBaAFCM0+NlSRnAK7UD7dvuzK7DDNbMPMFQGA1UdHwRN
 // SIG // MEswSaBHoEWGQ2h0dHA6Ly9jcmwubWljcm9zb2Z0LmNv
 // SIG // bS9wa2kvY3JsL3Byb2R1Y3RzL01pY3Jvc29mdFRpbWVT
@@ -182,15 +99,15 @@ displaySchedule();
 // SIG // AQUFBzAChjxodHRwOi8vd3d3Lm1pY3Jvc29mdC5jb20v
 // SIG // cGtpL2NlcnRzL01pY3Jvc29mdFRpbWVTdGFtcFBDQS5j
 // SIG // cnQwEwYDVR0lBAwwCgYIKwYBBQUHAwgwDQYJKoZIhvcN
-// SIG // AQEFBQADggEBAHP/fS6dzY2IK3x9414VceloYvAItkNW
-// SIG // xFxKLWjY+UgRkfMRnIXsEtRUoHWpOKFZf3XuxvU02FSk
-// SIG // 4tDMfJerk3UwlwcdBFMsNn9/8UAeDJuA4hIKIDoxwAd1
-// SIG // Z+D6NJzsiPtXHOVYYiCQRS9dRanIjrN8cm0QJ8VL2G+i
-// SIG // qBKzbTUjZ/os2yUtuV2xHgXnQyg+nAV2d/El3gVHGW3e
-// SIG // SYWh2kpLCEYhNah1Nky3swiq37cr2b4qav3fNRfMPwzH
-// SIG // 3QbPTpQkYyALLiSuX0NEEnpc3TfbpEWzkToSV33jR8Zm
-// SIG // 08+cRlb0TAex4Ayq1fbVPKLgtdT4HH4EVRBrGPSRzVGn
-// SIG // lWUwggW8MIIDpKADAgECAgphMyYaAAAAAAAxMA0GCSqG
+// SIG // AQEFBQADggEBAFEc1t82HdyAvAKnxpnfFsiQBmkVmjK5
+// SIG // 82QQ0orzYikbeY/KYKmzXcTkFi01jESb8fRcYaRBrpqL
+// SIG // ulDRanlqs2KMnU1RUAupjtS/ohDAR9VOdVKJHj+Wao8u
+// SIG // QBQGcu4/cFmSXYXtg5n6goSe5AMBIROrJ9bMcUnl2h3/
+// SIG // bzwJTtWNZugMyX/uMRQCN197aeyJPkV/JUTnHxrWxRrD
+// SIG // SuTh8YSY50/5qZinGEbshGzsqQMK/Xx6Uh2ca6SoD5iS
+// SIG // pJJ4XCt4432yx9m2cH3fW3NTv6rUZlBL8Mk7lYXlwUpl
+// SIG // nSVYULsgVJF5OhsHXGpXKK8xx5/nwx3uR/0n13/PdNxl
+// SIG // xT8wggW8MIIDpKADAgECAgphMyYaAAAAAAAxMA0GCSqG
 // SIG // SIb3DQEBBQUAMF8xEzARBgoJkiaJk/IsZAEZFgNjb20x
 // SIG // GTAXBgoJkiaJk/IsZAEZFgltaWNyb3NvZnQxLTArBgNV
 // SIG // BAMTJE1pY3Jvc29mdCBSb290IENlcnRpZmljYXRlIEF1
@@ -289,33 +206,33 @@ displaySchedule();
 // SIG // rrjz2DgAAQAAAJ0wCQYFKw4DAhoFAKCBvjAZBgkqhkiG
 // SIG // 9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgEL
 // SIG // MQ4wDAYKKwYBBAGCNwIBFTAjBgkqhkiG9w0BCQQxFgQU
-// SIG // x1akBvkUDdGjlbnjWeKW/NwfC0swXgYKKwYBBAGCNwIB
+// SIG // x6D8YhemJ5gnUzSprnLGu1WAXC8wXgYKKwYBBAGCNwIB
 // SIG // DDFQME6gJoAkAE0AaQBjAHIAbwBzAG8AZgB0ACAATABl
 // SIG // AGEAcgBuAGkAbgBnoSSAImh0dHA6Ly93d3cubWljcm9z
 // SIG // b2Z0LmNvbS9sZWFybmluZyAwDQYJKoZIhvcNAQEBBQAE
-// SIG // ggEAgtmRbonl60J/3fHzPQhfYuVU+fvE8CMbudagvWru
-// SIG // x5tdMOnZoMY1IywBpaEq4MFEhoHhDwxL5hKqAQofZ78H
-// SIG // wBl+NzyPMaATauIP9DIWKb3eFL8qUYsIoKgMw0BwYlt9
-// SIG // 2BgNnNnjiHkyQPCZr6QtI8WUmJkIu0YAOsNqTjrtFlA/
-// SIG // UkkclTIWIVAmhrGSBzx+GYcaXY4W89clNzed1gInKuDt
-// SIG // 43G8NngFLszvgAfAMfPVwKSb4k62yICcC111uPiylxCH
-// SIG // pUTh0oqtvs2GUXfJDnmKgmLiTeVwMHYgEnq7UG4RoBwm
-// SIG // nfO7ZsgBDrigBm2w5i9cVfiUU1AzyxS2OD8WJKGCAh8w
+// SIG // ggEAccgcifluoTUqTIp2mVeeoBeJHT+d6o7FvSC9bpQE
+// SIG // EicD1qSdWvGAvohZSy708/1Hzq/dv8K5bveF2z4a7r09
+// SIG // Bxu/Wk+ZlpYQD6xUmFWwrjHdu92NXXSqQAsXjyzWrItW
+// SIG // BE3C3fIbtcfiNkOUsVrrOm5EfZaTBT2xasvt9BkGXGaC
+// SIG // hdMcJ9oEbvU6Y+hRiPmC+eKq416hF0uFqsyPW+6Oy7xF
+// SIG // /REbIlO+IuR6uDWNUTUykHl8/Fo2mCOtJcbeRGz1KR48
+// SIG // KpQMYnn49uIZJSuhJT1j568DEGv9W3Y8JZD49Z1elpUB
+// SIG // sgrSdxg6K8wEJiz8pqRyt83Qal99jr0IcAMcDKGCAh8w
 // SIG // ggIbBgkqhkiG9w0BCQYxggIMMIICCAIBATCBhTB3MQsw
 // SIG // CQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQ
 // SIG // MA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UEChMVTWljcm9z
 // SIG // b2Z0IENvcnBvcmF0aW9uMSEwHwYDVQQDExhNaWNyb3Nv
-// SIG // ZnQgVGltZS1TdGFtcCBQQ0ECCmECjkIAAAAAAB8wCQYF
+// SIG // ZnQgVGltZS1TdGFtcCBQQ0ECCmECkkoAAAAAACAwCQYF
 // SIG // Kw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0B
 // SIG // BwEwHAYJKoZIhvcNAQkFMQ8XDTEyMTExNDIzNDQ1M1ow
-// SIG // IwYJKoZIhvcNAQkEMRYEFAAY0THR9ZJFHRz/LbIm5Rt2
-// SIG // zWJIMA0GCSqGSIb3DQEBBQUABIIBABfscaw4pFq6driP
-// SIG // JVYp3JkXaGOm/c5R1wEWO3t8EDIoA5wKR0jADAHM888H
-// SIG // wJrHmdwshofLJEfpmzJrUzynfPxckiNqHGFlzzwAd29p
-// SIG // gs9BBmYy4EG8My4fwTBeTPLzTA6BHMKD4j/DBOoNrnRN
-// SIG // j/wngrK03iDU5jWXz9C3JKcZ9rynuPp4raArwpnE4vFR
-// SIG // uqXpUwq1z7cnaOAbl/mv43oszAUcGGvYHPRM1yW4UYnN
-// SIG // MSBGWcIc52bgo3OL1mB6PFA0W2FWf9hB6gWBqUiy+EzF
-// SIG // PSDvLzhFY2MtSURzPruBj+9xk03i4q4cGBbXeAasjJ5d
-// SIG // 2TjAQfrWQ3qu7LQUvuQ=
+// SIG // IwYJKoZIhvcNAQkEMRYEFNzYLtGaIDHHxrdR2GNK44wT
+// SIG // wpACMA0GCSqGSIb3DQEBBQUABIIBAK7bQJgW5YpSuthp
+// SIG // Q0g/8WtPgq63LrqxruHLqliyblcmQr5+BS6zhCqDUaQF
+// SIG // oJpEzCZKV4oi2+UA8B73muVJbjY63lHdFAxvM3YHICpV
+// SIG // hePwgVj0hjqS+df3wHgJvjuUiyN2F9pdq3AzwxG3W6uh
+// SIG // Jy+B+ngNzVSNTLm1S1Z55aoQw6itwCgMwwAlhENOsSnu
+// SIG // 0r/sKjkmwoLmTy7QxJ0bkkj8lR5MRA2xxXINfBoOY/Rr
+// SIG // ziYKDUWNWIZlMwaqCXszkdYi31ZJFS0g4HKjRD4inVJz
+// SIG // KVJbdUhtryLtU8mDCu10k8IF5Ljw4D/aFWllC3ArBIrZ
+// SIG // DjAR0GQe/ooke7ttvPo=
 // SIG // End signature block

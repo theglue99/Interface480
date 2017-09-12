@@ -1,0 +1,135 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascipt Intro</title>
+
+    <!-- import jquery CDN -->
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+
+</head>
+<body>
+    <h1>jQuery demo</h1>
+
+    <button id="btn1">This is button 1</button>
+    <button id="btn2">This is button 2</button>
+
+    <p id="myPara">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <script type="text/javascript">
+        //bind to btn1, and upon clicking, fire off the function that toggles the display of btn2
+        $('#btn1').on('click',function(){
+            $('#btn2').toggle();
+        });    
+
+        //bind to btn2, and upon clicking, fire off the function that changes the paragraph text to red (one time and thus forever; not a toggle)
+        $('#btn2').on('click', function(){
+            $('#myPara').css('color', 'red');
+        });
+    </script>
+</body>
+</html>
+
+<!--
+    <!--example of changing html text; note, the script must be AFTER the code that is to be changed-->
+    <!-- original header message $$>
+    <h1 id="myHeader">Hi Planet!</h1>
+    <!-- blank paragraph tags; will insert text later$$>
+    <p id='p1'></p>
+    
+    <!-- have button to control adding text $$>
+    <button onclick="ShowMessage()">Click me!</button>
+    
+    <script type="text/javascript">
+        //change the header to different text
+        var myh1 = document.getElementById('myHeader');
+        myh1.innerHTML = 'Just changes this with JS';
+
+        //function for changing the paragraph above to now have text
+        function ShowMessage(){
+            var p = document.getElementById('p1');
+            p.innerHTML = "Hi Planet!";
+        }
+
+    </script>
+
+//array with multiple objects as elements
+var people = [
+    //element/index 0
+    {
+        FirstName: 'Dave',
+        LastName: 'Dunton'
+    //need } with comma between elements
+    },            
+    //element/index 1
+    {
+        FirstName: 'Evelyn',
+        LastName: 'Dunton',
+        Status: 'Unknown'
+    }
+]
+
+document.write(people[0].LastName);
+
+var person = {
+    //here are properties
+    FirstName: "David",
+    LastName: "Dunton",
+    City: "Gilbert",
+    //GetName is a method
+    GetName: function(){                
+        return this.FirstName + " " + this.LastName
+    }
+    //'this' knows it's part of the current object and is a reserved word
+}
+
+console.log(person.GetName());
+
+
+//calling a function
+var firstName = "David";
+var lastName = "Dunton";
+
+function WriteName(fName, lName){
+    document.write(fName + " " + lName);
+}
+//calls the function to display to the screen
+WriteName(firstName,lastName);
+
+
+//outputs to the body of the html page
+document.write('Hi planet!');
+
+var date = new Date().getDay();
+
+alert(date);
+//returns a number, in this case because it's Tuesday, we get '2'
+//use a switch/case statement to find the number, then return the day of the week as a string
+
+var isEnabled = true;
+var isSet = 0;
+
+if(isEnabled){
+    console.log("it is true");
+}
+
+var names = ['joe', 'peter', 'quagmire', 'cleveland']
+//to loop through an array:
+names.forEach(function(i){
+    alert("Name found:" + i);
+});
+
+//normally the array.forEach loop is accomplished like this:
+for (var i = 0; i < names.length; i++) {
+    alert("This name was found: " + names[i]);            
+}
+
+//console.log(isEnabled);
+
+var message = "I'm sorry Dave, I can't allow you to do that."
+alert(message);
+
+-->
