@@ -1,0 +1,69 @@
+<!-- use ! and then tab wihtin VS Code to start the shell of html page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Remote Server Demo</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #c3c3c3;
+            line-height: 1.6em;
+        }
+    </style>
+</head>
+<body>
+    <h3>Hi Planet!  Welcome to this web page/server communication demo.</h3>
+
+    <img src="images/ajax-model.jpg" alt="Ajax workflow model" />
+
+    <p>Link to some json samples: <a href="https://jsonplaceholder.typicode.com/" target="blank">Json samples</a></p>
+
+    <button id="button1">Get all posts</button>
+
+    <h1>Posts</h1>
+    <hr>
+    <div id="posts"></div>
+
+    <script>
+        document.getElementById('button1').addEventListener('click', loadPosts);
+
+        function loadPosts(){
+            var request = new XMLHttpRequest();
+            var url="https://jsonplaceholder.typicode.com/posts";
+            
+            //pull the information from the source
+            try {
+                request.open('GET', url, true);    
+            } catch (error) {
+                
+            }
+            
+
+            //now that you have pulled the information, let's use it
+            request.onload = function(){
+                if(this.status == 200){
+                    var posts = JSON.parse(this.responseText);
+                }
+                else{
+                    //alert("Sorry! Data not found from source.  Please try again.");
+                }                
+
+                var output = '';
+
+                posts.forEach(function(element) {
+                    output += '<h3>' + element.title + '</h3>' + '<p>' + element.body + '</p>';
+                });
+
+                document.getElementById('posts').innerHTML = output;
+            }
+
+            request.onerror = function(){
+                    document.getElementById('posts').innerHTML = 'There was an error in loading the content.  Please contact your system administrator.';
+            }
+
+            request.send();            
+        }
+    </script>
+</body>
+</html>

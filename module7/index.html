@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Java Objects & Methods</title>
+</head>
+<script>
+    //examples of java objects
+    
+    
+</script>
+
+<body>
+    
+</body>
+</html>
+
+<!--
+    //Constructor function/definition of an object
+    var User = function(firstname, lastname, city){
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.city = city;
+    }
+
+    //now create a new User object named 'david' with the properties assigned
+    var david = new User('David', 'Dunton', 'Gilbert');
+    
+    //add another property to the object on the fly
+    david.state = 'AZ';
+
+    document.write(david.firstname + " lives in " + david.city + ', ' + david.state);
+
+    //create a method common to all User objects
+    User.prototype.getname = function(){
+        return this.firstname + " " + this.lastname;
+    }
+
+    document.write(david.getname());
+
+
+
+    var iDunno = 'hi';
+
+    //check if the variable is a number or not
+    if(!parseInt(iDunno)) {
+        alert(iDunno + ' isn\'t a number :-(');
+    }
+
+    //or, using "isNan" which means "is not a number"
+    if(isNaN(iDunno)){
+        alert(iDunno + ' isn\'t a number :-(');
+    }
+
+
+
+    //var num = Math.random();
+    //alert(num);
+
+    var person = {name: 'David', city: 'Gilbert'}
+
+    //document.write(person.name + " lives in " + person.city);
+    document.write(JSON.stringify(person));
+
+
+
+    var myNamespace = {
+        myFunction1: function(){
+            alert('1');
+        },
+
+        myFunction2: function() {
+            alert('2');
+        }
+    }
+
+    myNamespace.myFunction1();
+
+
+
+
+    (function() {
+        //variables defined inside the function disappear when the function is done executing
+        //will not conflict with variables defined by other scripts
+        var localVar = '123' ;
+        var localVar2 = '1234';
+        //the same logic applies to functions
+        // - they are destroyed when the immediately invoked function completes
+        function localFunc(){
+            localVar = 99;
+        }
+    }) ();
+
+
+
+
+    //global variable(s)
+    var num = 7;
+
+    function doSomething(){
+        //local variable specific to the function
+        var num = 44;
+        alert(num);
+    }
+    
+    //will return 44, not 7
+    doSomething();
+-->

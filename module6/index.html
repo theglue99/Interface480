@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS 3 Demos</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(gray, white);
+        }
+        h1{
+            color: white;
+            text-shadow: 2px 2px 0 red;
+        }
+
+        header{
+            padding: 20px;
+            background-color: blue;
+            border-radius: 10px;
+            width: 50%;
+        }
+        ul li{
+            display: inline;
+            font-weight: bold;
+            word-spacing: 5px;
+            font-size: 18px;
+        }
+
+        .container {            
+            padding: 0 40px;             
+        }
+
+        .box1{
+            flex: 1;
+            order: 1;
+            transform: rotate(20deg);
+        }
+        .box1 p::first-letter{
+            font-size: 50px;
+        }        
+        .box2{
+            flex: 3;
+            order: 2;
+        }
+        .box2 p::first-line{
+            font-size: 72px;
+        }                
+        .box3{
+            flex: 1;
+            order: 3;
+            transform: rotate(-20deg);
+        }
+        .box3 p::first-letter{
+            font-size: 50px;
+        }          
+        @media(min-width:468px){
+            .container{
+                display: inline-flex;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hola Planet!</h1> 
+    </header>
+
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>About</li>
+            <li>Contact</li>
+
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="box1">
+            <h3>Box 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic fugiat totam dolores dicta natus reprehenderit voluptatibus, asperiores ad quidem placeat?
+        </div>
+
+        <div class="box2">
+                <h3>Box 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat earum exercitationem, molestiae assumenda cupiditate blanditiis ut magni delectus recusandae similique asperiores reiciendis quia iure temporibus praesentium accusamus consequatur. Odio id maiores possimus sequi ad debitis sapiente, voluptas exercitationem temporibus consectetur saepe voluptatem nobis perspiciatis voluptatum iusto harum quod aliquam velit eaque, suscipit libero, alias corrupti architecto. Similique, cumque incidunt ad, vel itaque ipsa quas iusto ullam veniam illum consequatur quasi esse. Eos et eveniet illo.</p>
+        </div>
+
+        <div class="box3">
+                <h3>Box 3</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae pariatur itaque suscipit atque officiis? Pariatur dolorum sint odit ipsa nobis.</p>
+        </div>
+    </div>
+</body>
+</html>

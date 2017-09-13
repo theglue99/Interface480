@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery AJAX Demo</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+            body{
+                font-size: 18px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #c3c3c3;
+                line-height: 1.6em;
+            }
+    </style>    
+</head>
+<body>
+    <h1>Posts</h1>
+    <button id="button1">Get all posts</button>
+    
+    <hr>     
+    
+    <div id="posts"></div>
+    <form id="postform" action="/submit">
+        <input type="text" name="title" id="title" placeholder="Title"><br/><br/>
+        <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter Text"></textarea><br/><br/>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <script>
+        $(document).ready(function(){
+            $('#button1').click(function(){
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                    dataType: 'json'
+                }).done(function(data){
+                    console.log(data);
+                    $.map(data, function(post, i){
+                        $('#posts').append('<h3>' + post.title + '</h3>' + '<p>' + post.body + '</p>');
+                    });
+                });
+            });
+
+            $('#postForm').submit(function(e){
+                //using preventDefault for training; would not be used in 'real world'
+                e.preventDefault();
+
+                var title = $('#title').val();
+                var body = $('#body').val();
+                var url = $(this).attr('action');
+
+                $.post(url, {title:title, body:body}).done(function(){
+                    console.log('Post Saved');
+                });
+
+                $('#posts').append('<h3>' + title + '</h3><p>' + body + '</p>');
+            });
+        });
+    </script>
+</body>
+</html>
