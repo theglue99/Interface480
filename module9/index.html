@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <title>Offline</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        //generate a unique session ID (between 0 and 19)
+        var id = Math.floor(Math.random() * 20);
+
+        console.log(id);
+
+        //check if the session ID has already been created; if not, then create it
+        if(!sessionStorage.getItem('userId')){
+            //create session ID associated to property 'userId'
+            sessionStorage.setItem('userId', id);
+        }        
+
+        //display the session ID on the page
+        document.getElementById('container').innerHTML = sessionStorage.getItem('userId');
+
+    </script>
+</body>
+</html>

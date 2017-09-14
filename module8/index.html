@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FileReader Demo!</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Let's read a file from a source</h1>
+    <input type="file" id="file" onchange="LoadTextFile()"><br/><br/>
+    <textarea name="message" id="message" cols="90" rows="10"></textarea>
+
+    <script>
+        function LoadTextFile(){
+            var fileInput = document.getElementById('file');
+            //display information about the file returned
+            console.log(fileInput.files[0]);
+
+            var reader = new FileReader();
+
+            reader.onload = function(e){
+                var msgBox = document.getElementById('message');
+                msgBox.value = e.target.result;
+            };
+
+            reader.onerror = function(e){
+                alert('Error loading selected file.  Please try again, or cry.');
+            }
+
+            reader.readAsText(fileInput.files[0]);
+        };
+    </script>
+</body>
+</html>

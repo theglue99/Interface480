@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Geolocation Demo</title>
+
+    <style>
+        .linkInvisible{
+            visibility: hidden;            
+        }
+
+        .linkVisible{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <h1>Where are you?</h1>
+
+    <button onclick="getLocation()">Watch what happens</button> <br/>
+
+    <a href="#" id="linkToMap" target="_blank" class="linkInvisible"></a>
+    
+    <script>
+        function getLocation(){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+
+        function showPosition(position) {
+            document.write(position.coords.latitude + '<br/>');
+            document.write(position.coords.longitude);
+
+            var url="https://www.google.com/maps/place" + 
+                position.coords.latitude + "," + position.coords.longitude;
+
+            var mapLink = document.getElementById('linkToMap');
+            console.log("Map link variable is: " + mapLink);            
+            mapLink.setAttribute('href', url);
+            mapLink.setAttribute('class', 'linkVisible');
+        }
+
+        //getLocation();
+    </script>
+</body>
+</html>
